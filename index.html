@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <title>MyBond Exercise</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <style>
+            a {
+                text-decoration: none; /* Remove underline from links */ 
+                color: black;
+                
+            }
+
+            a:hover {
+                color: rgb(73, 73, 211); /* All links should turn dark blue when hovered over */ 
+            }
+            
+            p {
+                text-align:center; /* All <p> should be center aligned */ 
+            }
+            
+            .mark {
+                background-color: rgb(255, 255, 117); /* Give marked text a light yellow background */ 
+                color: black; /* Set the text color to black */ 
+                text-align: center; /* Center align marked text */ 
+            }
+
+            .small {
+                width: 350px; /* Make images on the offcanvas a small size */ 
+                height: 250px;
+            }
+            
+            h1 {
+                font-weight: bolder;
+            }
+
+
+        </style>
+        <script>
+            let marked = false;
+            document.addEventListener('DOMContentLoaded', function() { //Function will run as soon as page is loaded
+                document.querySelectorAll('a').forEach(link => { //For each link on the page
+                    link.onclick = function() { //When a link is clicked
+                        if(marked === false){ //If a link is unmarked 
+                            link.setAttribute("class", "mark"); //Give it the mark class in order to highlight it
+                            marked = true; //A link is marked 
+                        }
+                        else{
+                            document.querySelectorAll('a').forEach(link =>{ //if any link is clicked while a current link is highlighted
+                                link.removeAttribute("class", "mark"); //remove the mark class from all links to remove highlight
+                                marked = false; //No links are marked
+                            })
+                        }
+                        let content = document.querySelector('.offcanvas-body'); //Create a variable for the insides of the offcanvas
+                        var imageArray = new Array(); //Create an array to hold the images used
+                        imageArray[0] = new Image(); //Aeineid Image
+                        imageArray[0].src = 'https://images.rapgenius.com/7cb3b739635560fe47f42d08ca1de99e.675x446x1.jpg';
+                        imageArray[1] = new Image(); //Dante Engravings Image
+                        imageArray[1].src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gustave_Dore_Inferno1.jpg/330px-Gustave_Dore_Inferno1.jpg'
+                        imageArray[2] = new Image(); //Foot of Mountain Image
+                        imageArray[2].src = 'https://images.rapgenius.com/1962f9d0d49dcb6561ca864fa7ad3c54.800x533x1.jpg'
+                        imageArray[3] = new Image(); //Human Heart Image
+                        imageArray[3].src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Diagram_of_the_human_heart_%28cropped%29.svg/2086px-Diagram_of_the_human_heart_%28cropped%29.svg.png'
+                        imageArray[4] = new Image(); //Sunny Mountain Image
+                        imageArray[4].src = 'https://image.freepik.com/free-photo/sunny-mountains-landscape_1112-96.jpg'
+                        imageArray[5] = new Image(); //Forest Image
+                        imageArray[5].src = 'https://elegantgoddesstranslation.files.wordpress.com/2011/04/wild-forest-yakushima-japan.jpg'
+                        
+                        //This Array holds the text held inside the offcanvas
+                        const insides = ["<b>Modern English:</b><br>In the middle of the journey of our life, I came to myself, in a darkwood, where the direct way was lost.<br><br><b>Context:</b><br><i>'Midway upon the journey of our life'</i> - Refers to the fact that Dante is 35 years old as of writing this which was half the biblical lifespan of seventy.<br><br><i>'The straightforward pathway had been lost.'</i> - Refers to losing the pathway to salvation<br><br><b>Techniques/Themes:</b><br>Biblical imagery and Natural imagery<br><br>" + "<img src="+imageArray[1].src+" class=small>", "<b>Modern English:</b><br>It is a hard thing to speak of, how wild, harsh and impenetrable that wood was, so that thinking of it recreates the fear.<br><br><b>Techniques/Themes</b><br>Natural imagery and Hyperbole<br><br>" + "<img src="+imageArray[5].src+" class=small>", "<b>Modern English:</b><br> It is scarcely less bitter than death: but, in order to tell of the good that I found there, I must tell of the other things I saw there.<br><br> <b>Context:</b><br><i>'But of the good to treat' - </i> The good refers to the spiritual journey Dante undertakes<br><br><b>Techniques/Themes:</b><br>Hyperbole","<b>Modern English:</b><br> I cannot rightly say how I entered it. I was so full of sleep, at that point that I abandoned the true way.<br><br><b>Themes/Technique:</b><br>A Biblical Reference is made to Sinful Sleep","<b>Modern English:</b><br>But when I reached the foot of a hill, where the valley, that had pierced my heart with fear, came to an end<br><br><b>Themes/Technique:</b><br>Natural Imagery and Metaphor<br><br>" + "<img src="+imageArray[2].src+" class=small>", "<b>Modern English:</b><br>I looked up and saw its shoulders brightened with the rays of that sun that leads men rightly on every road.<br><br><b>Context:</b><br><i>'Vested already with that planet's rays'</i> - At the time in Italy the Sun was believed to be a planet.<br><br><b>Themes/Technique:</b><br>Biblical Imagery<br><br>" + "<img src="+imageArray[4].src+" class=small>","<b>Modern English:</b><br>Then the fear, that had settled in the lake of my heart, through the night that I had spent so miserably, became a little calmer<br><br><b>Context:</b><br><i>'That in my heart's lake'</i> - Medieval Biology believed that the heart rather than acting as a pump was a reservoir of blood/lifeforce, and that when encountering fear, blood would return to the heart from the limbs making them weaken.<br><br><b>Technique:</b><br>Metaphor<br>" + "<img src="+imageArray[3].src+" class=small>","<b>Modern English:</b><br>And as a man, who, with panting breath, has escaped from the deep sea to the shore, turns back towards the perilous waters and stares<br><br><b>Technique:</b><br>Simile and Allusion to Mythology (Aeneid)<br><br>" + "<img src="+imageArray[0].src+" class=small>","<b>Modern English:</b><br>so my mind, still fugitive, turned back to see that pass again, that no living person ever left.<br><br><b>Technique:</b><br>Continuation of Simile and Allusion in previous tercet"];
+                        //This switch is how the text in the array is updated when a different stanza is clicked.
+                        switch ( link.dataset.value ) {
+                            case "0":
+                                content.innerHTML=insides[0]
+                                break;
+                            case "1":
+                                content.innerHTML=insides[1]
+                                break;
+                            case "2":
+                                content.innerHTML=insides[2]
+                                break;
+                            case "3":
+                                content.innerHTML=insides[3]
+                                break;
+                            case "4":
+                                content.innerHTML=insides[4]
+                                break;
+                            case "5":
+                                content.innerHTML=insides[5]
+                                break;
+                            case "6":
+                                content.innerHTML=insides[6]
+                                break;
+                            case "7":
+                                content.innerHTML=insides[7]
+                                break;
+                            case "8":
+                                content.innerHTML=insides[8]
+
+
+                        }
+
+                    }
+                })
+                document.querySelector('button').onclick = function(){ //If the offcanvas close button is clicked
+                    document.querySelectorAll('a').forEach(link =>{ //if any link is clicked while a current link is highlighted
+                            link.removeAttribute("class", "mark"); //remove the mark class from all links to remove highlight
+                            marked = false; //No links are marked
+                        })
+                    }
+            })
+        </script>
+    </head>
+    <body>
+        <div class="container"> 
+            <!-- Title of the page -->
+            <div class="row">
+                <div class=col></div>
+                <div class=col-8>
+                    <h1 class="text-center"> 
+                        Canto I - The Divine Comedy <br>
+                    </h1>
+                </div>
+                <div class=col></div>
+            </div>
+        </div>
+        <div class="container">
+            <!-- The Excerpt -->
+            <div class="row">
+                <div class=col></div>
+                <div class=col-6>
+                    <p></p>
+                    <p class="text-center">
+                        <a data-bs-toggle="offcanvas" href="#offcanvasScrolling" role="button" aria-controls="offcanvasScrolling" data-value="0"> 
+                            Midway upon the journey of our life<br>
+                            I found myself within a forest dark,<br>
+                            For the straightforward pathway had been lost.
+                        </a>
+                    </p>
+                    <p class="text-center">
+                        <a data-bs-toggle="offcanvas" href="#offcanvasScrolling" role="button" aria-controls="offcanvasScrolling" data-value="1"> 
+                            Ah me! how hard a thing it is to say<br>
+                            What was this forest savage, rough, and stern,<br>
+                            Which in the very thought renews the fear.
+                        </a>
+                    </p>
+                    <p class="text-center">
+                        <a data-bs-toggle="offcanvas" href="#offcanvasScrolling" role="button" aria-controls="offcanvasScrolling" data-value="2"> 
+                            bitter is it, death is little more;<br>
+                            But of the good to treat, which there I found,<br>
+                            Speak will I of the other things I saw there.
+                        </a>
+                    </p>
+                    <p class="text-center">
+                        <a data-bs-toggle="offcanvas" href="#offcanvasScrolling" role="button" aria-controls="offcanvasScrolling" data-value="3">  
+                            I cannot well repeat how there I entered,<br>
+                            So full was I of slumber at the moment<br>
+                            In which I had abandoned the true way. 
+                        </a>
+                    </p>
+                    <p class="text-center">
+                        <a data-bs-toggle="offcanvas" href="#offcanvasScrolling" role="button" aria-controls="offcanvasScrolling" data-value="4">      
+                            But after I had reached a mountain's foot,<br>
+                            At that point where the valley terminated,<br>
+                            Which had with consternation pierced my heart,
+                        </a>
+                    </p>
+                    <p class="text-center">                  
+                        <a data-bs-toggle="offcanvas" href="#offcanvasScrolling" role="button" aria-controls="offcanvasScrolling" data-value="5"> 
+                            Upward I looked, and I beheld its shoulders,<br>
+                            Vested already with that planet's rays<br>
+                            Which leadeth others right by every road.
+                        </a>
+                    </p>
+                    <p class="text-center">  
+                        <a data-bs-toggle="offcanvas" href="#offcanvasScrolling" role="button" aria-controls="offcanvasScrolling" data-value="6">                  
+                            Then was the fear a little quieted<br>
+                            That in my heart's lake had endured throughout<br>
+                            The night, which I had passed so piteously.
+                        </a>
+                    </p>
+                    <p class="text-center">
+                        <a data-bs-toggle="offcanvas" href="#offcanvasScrolling" role="button" aria-controls="offcanvasScrolling" data-value="7"> 
+                            And even as he, who, with distressful breath,<br>
+                            Forth issued from the sea upon the shore,<br>
+                            Turns to the water perilous and gazes;
+                        </a>
+                    </p>
+                    <p class="text-center">
+                        <a data-bs-toggle="offcanvas" href="#offcanvasScrolling" role="button" aria-controls="offcanvasScrolling" data-value="8"> 
+                            So did my soul, that still was fleeing onward,<br>
+                            Turn itself back to re-behold the pass<br>
+                            Which never yet a living person left.
+                        </a>
+                    </p>
+                </div>
+                <div class=col></div>
+            </div>
+        </div>
+
+        <!-- Code for the offcanvas -->
+        <div class="offcanvas offcanvas-start" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Annotations:</h5>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                Offcanvas content goes here
+            </div>
+          </div>
+          <!-- Bootstrap stuff -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
